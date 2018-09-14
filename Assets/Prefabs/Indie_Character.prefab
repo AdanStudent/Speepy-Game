@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50737852180327906}
   - component: {fileID: 61295533005987218}
   - component: {fileID: 114884665281231054}
+  - component: {fileID: 95117399542625444}
   m_Layer: 0
   m_Name: Indie_Character
   m_TagString: Untagged
@@ -89,6 +90,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &95117399542625444
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1284382555264734}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114349207597835026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,7 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091414aa83de3c1469a159563602e8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 45
+  flashlightXConstraint: 0.5
+  flashlightYConstraint: 1.3
   flashLight: {fileID: 0}
 --- !u!114 &114884665281231054
 MonoBehaviour:

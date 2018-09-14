@@ -404,11 +404,6 @@ Prefab:
       propertyPath: flashLight
       value: 
       objectReference: {fileID: 1490588429}
-    - target: {fileID: 114349207597835026, guid: f02cf6f249dfd1946b7f1df67f2f1a26,
-        type: 2}
-      propertyPath: speed
-      value: 45
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f02cf6f249dfd1946b7f1df67f2f1a26, type: 2}
   m_IsPrefabParent: 0

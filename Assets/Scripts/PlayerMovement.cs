@@ -22,13 +22,32 @@ public class PlayerMovement : MonoBehaviour {
     //the position of the mouse cursor on the screen
     private Vector3 mousePos;
 
-    
+    //Animator object
+    Animator animator;
+
+    //the current direction of player
+
+    public DIRECTIONS CurrentDirection { get; set; }
+
+    public enum DIRECTIONS { Up, Right, Down, Left };
+
+    //Use this for intialization 
+    void Start()
+    {
+        //get the player object's animator component
+        animator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         //set input information
         float translationX = Input.GetAxis("Horizontal") ;
         float translationY = Input.GetAxis("Vertical") ;
+
+        animator.SetFloat("speed", Mathf.Max(Mathf.Abs(translationX), Mathf.Abs(translationY)));
+        // Set facing direction
+        SetDirection(translationX, translationY);
 
         //set new position
         GetComponent<Rigidbody2D>().velocity = new Vector2(translationX * (speed * Time.deltaTime), translationY * (speed * Time.deltaTime));
@@ -39,13 +58,54 @@ public class PlayerMovement : MonoBehaviour {
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
         //restrict flashlight movement to front of player
-        mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x- flashlightXConstraint, transform.position.x +flashlightXConstraint);
-        mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightYConstraint, transform.position.y - flashlightYConstraint);
+        SetFlashlightDirection();
 
         //move flashlight position
         flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, mousePos, speed);
 
     }
 
+    //set the direction that the player object is facing
+    private void SetDirection(float x, float y)
+    {
+        if (x < 0)
+            CurrentDirection = DIRECTIONS.Left;
+        else if (x > 0)
+            CurrentDirection = DIRECTIONS.Right;
+        else if (y < 0)
+            CurrentDirection = DIRECTIONS.Down;
+        else if (y > 0)
+            CurrentDirection = DIRECTIONS.Up;
+        animator.SetInteger("direction", (int)CurrentDirection);
+    }
+
+    //change the flashlight restrictions to always be in front of player no matter what direction
+    private void SetFlashlightDirection()
+    {
+        if(CurrentDirection.CompareTo(DIRECTIONS.Down)==0)
+        {
+            //restrict flashlight movement to front of player
+            mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightXConstraint, transform.position.x + flashlightXConstraint);
+            mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightYConstraint, transform.position.y - flashlightYConstraint);
+        }
+        else if (CurrentDirection.CompareTo(DIRECTIONS.Up) == 0)
+        {
+            //restrict flashlight movement to front of player
+            mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightXConstraint, transform.position.x + flashlightXConstraint);
+            mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y + flashlightYConstraint, transform.position.y + flashlightYConstraint);
+        }
+        else if (CurrentDirection.CompareTo(DIRECTIONS.Right) == 0)
+        {
+            //restrict flashlight movement to front of player
+            mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x + flashlightYConstraint, transform.position.x + flashlightYConstraint);
+            mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightXConstraint, transform.position.y + flashlightXConstraint);
+        }
+        else if (CurrentDirection.CompareTo(DIRECTIONS.Left) == 0)
+        {
+            //restrict flashlight movement to front of player
+            mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightYConstraint, transform.position.x - flashlightYConstraint);
+            mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightXConstraint, transform.position.y + flashlightXConstraint);
+        }
+    }
 
 }
