@@ -36,6 +36,9 @@ public class PlayerMovement : MonoBehaviour {
     {
         //get the player object's animator component
         animator = GetComponent<Animator>();
+
+        //starting direction
+        CurrentDirection = DIRECTIONS.Down;
     }
 
     // Update is called once per frame
