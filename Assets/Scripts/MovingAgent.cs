@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
 //used for the differents types of behaviors the Moving Agent will enact
 public enum SteeringBehaviors { None, Seek, Arrive, Pursuit, Wander}
@@ -13,11 +9,22 @@ enum Deceleration { Fast = 1, Normal, Slow}
 
 class MovingAgent
 {
+
+    public void RunOnStart()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _playerRB2D = _player.GetComponent<Rigidbody2D>();
+        _playerMovement = _player.GetComponent<PlayerMovement>();
+    }
+
+
     //reference for the agent it will be directing
     private UnityGhost _unityGhost;
 
     //probably will need a reference of the Player
-    //private Player _player;
+    private GameObject _player;
+    private Rigidbody2D _playerRB2D;
+    private PlayerMovement _playerMovement;
 
 
     private Vector2 _steeringForce;
@@ -52,10 +59,10 @@ class MovingAgent
                 _steeringForce = Arrive(_homeLoc, Deceleration.Slow);
                 break;
 
-            //case Behaviors.Pursuit:
-            //    if (BasicAgent1 != null)
-            //        steeringForce = Pursuit(this.BasicAgent1);
-            //    break;
+            case SteeringBehaviors.Pursuit:
+                if (this._player != null)
+                    _steeringForce = Pursuit(this._player);
+                break;
 
             case SteeringBehaviors.Wander:
                 _steeringForce = Wander();
@@ -95,20 +102,21 @@ class MovingAgent
         return Vector2.zero;
     }
 
-    //private Vector2 Pursuit(Player evader)
-    //{
-    //    Vector2 ToEvader = evader.Location - this.agent.Location;
+    private Vector2 Pursuit(GameObject evader)
+    {
+        Vector2 ToEvader = evader.transform.position - this._unityGhost.transform.position;
 
-    //    float RelativeHeading = Vector2.Dot(this.agent.Heading, evader.Heading);
+                                                                        //gets player heading
+        float RelativeHeading = Vector2.Dot(this._unityGhost.Heading, this._playerRB2D.velocity.normalized);
+    
+        if (((Vector2.Dot(ToEvader, this._unityGhost.Heading) > 0)) && (RelativeHeading < -.95))
+        {
+            return Seek(evader.transform.position);
+        }
 
-    //    if (((Vector2.Dot(ToEvader, this.agent.Heading) > 0)) && (RelativeHeading < -.95))
-    //    {
-    //        return Seek(evader.Location);
-    //    }
-
-    //    float LookAheadTime = ToEvader.magnitude / (this.agent.MaxSpeed + evader.Speed);
-    //    return Seek(evader.Location + evader.Direction * LookAheadTime);
-    //}
+        float LookAheadTime = ToEvader.magnitude / (this._unityGhost.MaxSpeed + _playerMovement.Speed());
+        return Seek(evader.transform.position + (Vector3)(_playerRB2D.velocity * LookAheadTime));
+    }
 
     //private Vector2 Evade(BasicAgent pursuer)
     //{
@@ -138,11 +146,6 @@ class MovingAgent
                                             wanderRadius * Mathf.Sin(wanderTheta + h));
 
         Vector2 target = circlePos + circleOffset;
-
-
-        //Vector3 unitCircleWander = UnityEngine.Random.insideUnitCircle.normalized;
-        //unitCircleWander.x = Mathf.Clamp(unitCircleWander.x, -1.6f, 1.6f);
-        //unitCircleWander.y = Mathf.Clamp(unitCircleWander.y, -1, 1f);
 
             return Seek(target);
     }
@@ -182,7 +185,6 @@ class MovingAgent
         if (!SumForces(force))
         {
             this._steeringForce += force;
-            Debug.Log(this._steeringForce);
         }
     }
 

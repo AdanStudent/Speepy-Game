@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 
 public class UnityGhost : MonoBehaviour {
 
@@ -14,7 +15,6 @@ public class UnityGhost : MonoBehaviour {
     public float MaxForce;
     public float Mass;
 
-    //maybe these can be retrieved from the rigidbody?
     public Vector2 Direction;
     public Vector2 Location;
     public Vector2 Heading;
@@ -26,6 +26,8 @@ public class UnityGhost : MonoBehaviour {
         _agent = new MovingAgent(this, _behaviors, Vector2.down);
         this.Location = this.transform.position;
 
+        this._agent.RunOnStart();
+
 	}
 	
 	// Update is called once per frame
@@ -33,9 +35,12 @@ public class UnityGhost : MonoBehaviour {
     {
         _agent.UpdateForces();
 
+        //Updates Heading as it is needed for AI calculations
         this.Heading = this.Direction.normalized;
+        //Updates Location based on AI calculations
         this.transform.position = this.Location;
 
+        //During gameplay will update as player comes into view vs just wandering
         UpdateGhostState();
 	}
 
@@ -49,5 +54,12 @@ public class UnityGhost : MonoBehaviour {
     //used to update Ghost's behavior based on it's state
     private void UpdateGhostState()
     {
+        //Start with Wander state
+
+        //If player is in "view" start chasing
+
+        //If stunned stop movement
+
+        //If wanders too far off screen go back home
     }
 }
