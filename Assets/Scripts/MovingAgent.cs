@@ -118,15 +118,6 @@ class MovingAgent
         return Seek(evader.transform.position + (Vector3)(_playerRB2D.velocity * LookAheadTime));
     }
 
-    //private Vector2 Evade(BasicAgent pursuer)
-    //{
-    //    Vector2 ToPursuer = pursuer.Location - this.agent.Location;
-
-    //    float LookAheadTime = ToPursuer.magnitude / (this.agent.MaxSpeed + pursuer.Speed);
-
-    //    return Flee(pursuer.Location + pursuer.Direction * LookAheadTime);
-    //}
-
     float wanderTheta;
     private Vector2 Wander()
     {
