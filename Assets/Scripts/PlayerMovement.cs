@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start()
     {
         //get the player object's animator component
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
 
         //starting direction
         CurrentDirection = DIRECTIONS.Down;
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour {
             CurrentDirection = DIRECTIONS.Down;
         else if (y > 0)
             CurrentDirection = DIRECTIONS.Up;
-        //animator.SetInteger("direction", (int)CurrentDirection);
+        animator.SetInteger("direction", (int)CurrentDirection);
     }
 
     //change the flashlight restrictions to always be in front of player no matter what direction
