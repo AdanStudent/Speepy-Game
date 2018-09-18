@@ -93,24 +93,28 @@ public class PlayerMovement : MonoBehaviour {
         if(CurrentDirection.CompareTo(DIRECTIONS.Down)==0)
         {
             //restrict flashlight movement to front of player
+            flashLight.transform.localRotation = Quaternion.Euler(0, -180, 0);
             mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightXConstraint, transform.position.x + flashlightXConstraint);
             mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightYConstraint, transform.position.y - flashlightYConstraint);
         }
         else if (CurrentDirection.CompareTo(DIRECTIONS.Up) == 0)
         {
             //restrict flashlight movement to front of player
+            flashLight.transform.localRotation=Quaternion.Euler(180, 0, 0);
             mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightXConstraint, transform.position.x + flashlightXConstraint);
             mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y + flashlightYConstraint, transform.position.y + flashlightYConstraint);
         }
         else if (CurrentDirection.CompareTo(DIRECTIONS.Right) == 0)
         {
             //restrict flashlight movement to front of player
+            flashLight.transform.localRotation = Quaternion.Euler(0, 0, 90);
             mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x + flashlightYConstraint, transform.position.x + flashlightYConstraint);
             mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightXConstraint, transform.position.y + flashlightXConstraint);
         }
         else if (CurrentDirection.CompareTo(DIRECTIONS.Left) == 0)
         {
             //restrict flashlight movement to front of player
+            flashLight.transform.localRotation = Quaternion.Euler(0, 0, -90);
             mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightYConstraint, transform.position.x - flashlightYConstraint);
             mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightXConstraint, transform.position.y + flashlightXConstraint);
         }
