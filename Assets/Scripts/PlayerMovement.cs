@@ -81,13 +81,25 @@ public class PlayerMovement : MonoBehaviour {
     {
         //set the current direction of player
         if (x < 0)
+        {
             CurrentDirection = DIRECTIONS.Left;
+            //this.transform.localScale = Vector3.down;
+            this.transform.localRotation = Quaternion.Euler(0, -180, 0);
+        }
         else if (x > 0)
+        {
             CurrentDirection = DIRECTIONS.Right;
+            this.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
         else if (y < 0)
+        {
             CurrentDirection = DIRECTIONS.Down;
+        }
         else if (y > 0)
+        {
             CurrentDirection = DIRECTIONS.Up;
+        }
+   
         animator.SetInteger("direction", (int)CurrentDirection);
     }
 

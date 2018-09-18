@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 2146952941}
   - component: {fileID: 2146952940}
   - component: {fileID: 2146952944}
+  - component: {fileID: 2146952945}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -409,3 +410,21 @@ MonoBehaviour:
   target: {fileID: 1819534438}
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: -2}
+--- !u!95 &2146952945
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2146952939}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27768423dd5d9af469e829b6b1855c9e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
