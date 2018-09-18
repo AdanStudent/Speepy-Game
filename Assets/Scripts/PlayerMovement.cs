@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour {
     //Animator object
     Animator animator;
 
+    Quaternion targetRotation;
+
     //the current direction of player
 
     public DIRECTIONS CurrentDirection { get; set; }
@@ -70,12 +72,14 @@ public class PlayerMovement : MonoBehaviour {
 
         //move flashlight position
         flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, mousePos, speed);
+       
 
     }
 
     //set the direction that the player object is facing
     private void SetDirection(float x, float y)
     {
+        //set the current direction of player
         if (x < 0)
             CurrentDirection = DIRECTIONS.Left;
         else if (x > 0)
@@ -92,29 +96,36 @@ public class PlayerMovement : MonoBehaviour {
     {
         if(CurrentDirection.CompareTo(DIRECTIONS.Down)==0)
         {
-            //restrict flashlight movement to front of player
+            //flip the flashlight to face down
             flashLight.transform.localRotation = Quaternion.Euler(0, -180, 0);
+            //restrict flashlight movement to front of player
             mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightXConstraint, transform.position.x + flashlightXConstraint);
             mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightYConstraint, transform.position.y - flashlightYConstraint);
+           
         }
         else if (CurrentDirection.CompareTo(DIRECTIONS.Up) == 0)
         {
-            //restrict flashlight movement to front of player
+            
+            //flip the flashlight to face up
             flashLight.transform.localRotation=Quaternion.Euler(180, 0, 0);
+            //restrict flashlight movement to front of player
             mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightXConstraint, transform.position.x + flashlightXConstraint);
             mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y + flashlightYConstraint, transform.position.y + flashlightYConstraint);
         }
         else if (CurrentDirection.CompareTo(DIRECTIONS.Right) == 0)
         {
-            //restrict flashlight movement to front of player
+            //flip the flashlight to face right
             flashLight.transform.localRotation = Quaternion.Euler(0, 0, 90);
+            //restrict flashlight movement to front of player
             mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x + flashlightYConstraint, transform.position.x + flashlightYConstraint);
             mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightXConstraint, transform.position.y + flashlightXConstraint);
+           
         }
         else if (CurrentDirection.CompareTo(DIRECTIONS.Left) == 0)
         {
-            //restrict flashlight movement to front of player
+            //flip the flashlight to face left
             flashLight.transform.localRotation = Quaternion.Euler(0, 0, -90);
+            //restrict flashlight movement to front of player
             mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightYConstraint, transform.position.x - flashlightYConstraint);
             mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightXConstraint, transform.position.y + flashlightXConstraint);
         }
