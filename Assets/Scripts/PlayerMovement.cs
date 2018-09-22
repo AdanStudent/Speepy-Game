@@ -76,7 +76,6 @@ public class PlayerMovement : MonoBehaviour {
         //move flashlight position
         flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, mousePos, speed);
        
-
     }
 
     //set the direction that the player object is facing
