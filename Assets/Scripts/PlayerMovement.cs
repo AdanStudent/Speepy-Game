@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour {
     //Animator object
     Animator animator;
 
+    //player's sprite renderer
     SpriteRenderer flip;
 
     //the current direction of player
@@ -58,7 +59,6 @@ public class PlayerMovement : MonoBehaviour {
         float translationX = Input.GetAxis("Horizontal") ;
         float translationY = Input.GetAxis("Vertical") ;
 
-        //animator.SetFloat("speed", Mathf.Max(Mathf.Abs(translationX), Mathf.Abs(translationY)));
         // Set facing direction
         SetDirection(translationX, translationY);
 
@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour {
         else if (CurrentDirection.CompareTo(DIRECTIONS.Right) == 0)
         {
             //flip the flashlight to face right
-            flashLight.transform.localRotation = Quaternion.Euler(0, 0,-90);
+            flashLight.transform.localRotation = Quaternion.Euler(0, 0,90);
             //restrict flashlight movement to front of player
             mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x + flashlightYConstraint, transform.position.x + flashlightYConstraint);
             mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightXConstraint, transform.position.y + flashlightXConstraint);
@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour {
         else if (CurrentDirection.CompareTo(DIRECTIONS.Left) == 0)
         {
             //flip the flashlight to face left
-            flashLight.transform.localRotation = Quaternion.Euler(0, 0, 90);
+            flashLight.transform.localRotation = Quaternion.Euler(0, 0, -90);
             //restrict flashlight movement to front of player
             mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightYConstraint, transform.position.x - flashlightYConstraint);
             mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightXConstraint, transform.position.y + flashlightXConstraint);
