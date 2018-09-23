@@ -7,21 +7,28 @@ using UnityEngine.UI;
 public class SceneManagement : MonoBehaviour {
 
     //Buttons used in menu
-    public Button StartButton;
+    public Button StartButton1;
+    public Button StartButton2;
     public Button ExitButton;
     public Button MenuButton;
     public Button CreditsButton;
     public Button RestartButton;
+
 
     // Use this for initialization
     void Start () {
         //dont destroy this game object
         DontDestroyOnLoad(this);
         //create code for buttons, buttons only work if there is an object attached to it
-        if (StartButton != null)
+        if (StartButton1 != null)
         {
-            Button btn = StartButton.GetComponent<Button>();
+            Button btn = StartButton1.GetComponent<Button>();
             btn.onClick.AddListener(TaskOnClick);
+        }
+        if (StartButton2 != null)
+        {
+            Button btn = StartButton1.GetComponent<Button>();
+            btn.onClick.AddListener(TaskOnClick5);
         }
         if (ExitButton != null)
         {
@@ -50,11 +57,10 @@ public class SceneManagement : MonoBehaviour {
     {
 	}
 
-    //starts game
+    //loads instructions
     void TaskOnClick()
     {
-        SceneManager.LoadScene("Level1");
-        StatManager.level = 1;
+        SceneManager.LoadScene("Instructions");
     }
 
     //exits game
@@ -66,19 +72,26 @@ public class SceneManagement : MonoBehaviour {
     //returns to start menu
     void TaskOnClick2()
     {
-        SceneManager.LoadScene("Start Screen");
+        SceneManager.LoadScene("StartMenu");
     }
 
     //loads credits
     void TaskOnClick3()
     {
-        SceneManager.LoadScene("Credits Screen");
+        SceneManager.LoadScene("Credits");
     }
 
     //loads checkpoint
     void TaskOnClick4()
     {
         SceneManager.LoadScene("Level"+StatManager.level);
+    }
+
+    //loads game
+    void TaskOnClick5()
+    {
+        SceneManager.LoadScene("Level1");
+        StatManager.level = 1;
     }
 
     //moves through levels as they are completed
@@ -96,7 +109,7 @@ public class SceneManagement : MonoBehaviour {
     //loads win scene
     public static void Win()
     {
-        SceneManager.LoadScene("VictoryScene");
+        SceneManager.LoadScene("Victory");
     }
     //loads gameover scene
     public static void GameOver()

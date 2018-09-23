@@ -14,19 +14,19 @@ public class StatManager : MonoBehaviour {
     //player must have a key to complete level
     public static bool hasKey;
 
+  
+
 	// Use this for initialization
 	void Start () {
         DontDestroyOnLoad(this);
         hasKey = false;
+       
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-        if(health<=0)
-        {
-            SceneManagement.GameOver();
-        }
+
+
 	}
 
 }
