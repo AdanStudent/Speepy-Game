@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Light
   - Ghost
+  - Safe
+  - stair
+  - key
   layers:
   - Default
   - TransparentFX
