@@ -22,6 +22,9 @@ public class PlayerHealth : MonoBehaviour {
     //bool for making the character invincible
     bool isInvincible;
 
+    //Bool for safe room
+    public static bool safe;
+
     // Use this for initialization
     void Start () {
         //set health at start/restart of game/level
@@ -68,6 +71,22 @@ public class PlayerHealth : MonoBehaviour {
         {
             if (StatManager.hasKey)
                 SceneManagement.LevelChange();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Safe")
+        {
+            safe = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Safe")
+        {
+            safe = false;
         }
     }
 

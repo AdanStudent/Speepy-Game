@@ -79,6 +79,10 @@ public class UnityGhost : MonoBehaviour {
         }
 
         //If player is in "view" start chasing
+        if (Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) > 5)
+        {
+            UpdateAIBehavior(SteeringBehaviors.Pursuit);
+        }
 
         //If wanders too far off screen go back home
         if (Vector3.Distance(this.transform.position, this._homeLocation) > 20)
