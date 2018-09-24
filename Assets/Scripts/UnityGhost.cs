@@ -96,15 +96,18 @@ public class UnityGhost : MonoBehaviour {
     bool isStunned;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Light")
+        Debug.Log(collision.gameObject.tag);
+
+        if (collision.gameObject.tag == "Light")
         {
+            Debug.Log("light");
             UpdateAIBehavior(SteeringBehaviors.None);
 
             //Start countdown timer
             _stunnedTimer = 5f;
             isStunned = true;
         }
-        else if(collision.tag == "Player")
+        else if(collision.gameObject.tag == "Player")
         {
             this.transform.position = _homeLocation;
             UpdateAIBehavior(SteeringBehaviors.Seek);

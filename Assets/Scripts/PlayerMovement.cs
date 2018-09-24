@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour {
         //set new position
         GetComponent<Rigidbody2D>().velocity = new Vector2(translationX * (speed * Time.deltaTime), translationY * (speed * Time.deltaTime));
         GetComponent<Rigidbody2D>().AddForce(new Vector2(translationX*speed,translationY*speed));
+        GetComponent<Rigidbody2D>().freezeRotation=true;
 
         //get the mouse postion on the screen
         mousePos = Input.mousePosition;
