@@ -6747,6 +6747,21 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212637569649951940, guid: 4a538f5dbd9715648951a1d1d001fb86,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212637569649951940, guid: 4a538f5dbd9715648951a1d1d001fb86,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212637569649951940, guid: 4a538f5dbd9715648951a1d1d001fb86,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a538f5dbd9715648951a1d1d001fb86, type: 2}
   m_IsPrefabParent: 0
@@ -11190,16 +11205,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114884665281231054, guid: f02cf6f249dfd1946b7f1df67f2f1a26,
+        type: 2}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1864906634}
+    - target: {fileID: 114884665281231054, guid: f02cf6f249dfd1946b7f1df67f2f1a26,
+        type: 2}
+      propertyPath: keyUI
+      value: 
+      objectReference: {fileID: 706456014}
     - target: {fileID: 114349207597835026, guid: f02cf6f249dfd1946b7f1df67f2f1a26,
         type: 2}
       propertyPath: flashLight
       value: 
       objectReference: {fileID: 706145616}
-    - target: {fileID: 114884665281231054, guid: f02cf6f249dfd1946b7f1df67f2f1a26,
-        type: 2}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 706456014}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f02cf6f249dfd1946b7f1df67f2f1a26, type: 2}
   m_IsPrefabParent: 0
@@ -11330,7 +11350,7 @@ GameObject:
   - component: {fileID: 1860100359}
   m_Layer: 0
   m_Name: Key
-  m_TagString: Untagged
+  m_TagString: key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11344,7 +11364,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -11428,6 +11448,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1864906634 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1815609402162284, guid: 852b75ab5e8b06840ac92ee61b07ad19,
+    type: 2}
+  m_PrefabInternal: {fileID: 706456013}
 --- !u!1 &1980545873
 GameObject:
   m_ObjectHideFlags: 0

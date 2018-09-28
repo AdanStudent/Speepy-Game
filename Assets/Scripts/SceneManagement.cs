@@ -27,7 +27,7 @@ public class SceneManagement : MonoBehaviour {
         }
         if (StartButton2 != null)
         {
-            Button btn = StartButton1.GetComponent<Button>();
+            Button btn = StartButton2.GetComponent<Button>();
             btn.onClick.AddListener(TaskOnClick5);
         }
         if (ExitButton != null)
@@ -85,6 +85,7 @@ public class SceneManagement : MonoBehaviour {
     void TaskOnClick4()
     {
         SceneManager.LoadScene("Level"+StatManager.level);
+        StatManager.hasKey = false;
     }
 
     //loads game
