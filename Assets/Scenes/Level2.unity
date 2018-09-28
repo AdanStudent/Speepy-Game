@@ -6531,6 +6531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 680630872}
   - component: {fileID: 680630871}
+  - component: {fileID: 680630873}
   m_Layer: 0
   m_Name: TablesChairs_7
   m_TagString: Untagged
@@ -6596,6 +6597,42 @@ Transform:
   m_Father: {fileID: 1594875808}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &680630873
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680630870}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.28718948, y: 0.33459902}
+      - {x: -0.30013752, y: 0.13366556}
+      - {x: -0.44343948, y: 0.08245802}
+      - {x: -0.44343948, y: -0.21768045}
+      - {x: -0.12772751, y: -0.3222375}
+      - {x: -0.1722908, y: -0.44331503}
+      - {x: 0.23062801, y: -0.48384047}
+      - {x: 0.21598434, y: -0.34179163}
+      - {x: 0.451519, y: -0.25000048}
+      - {x: 0.46767998, y: -0.19223833}
+      - {x: 0.41111755, y: 0.10776901}
+      - {x: 0.03125, y: 0.24571753}
 --- !u!1 &680933729
 GameObject:
   m_ObjectHideFlags: 0
