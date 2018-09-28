@@ -1,17 +1,14 @@
 fileFormatVersion: 2
-guid: 815b0648fcc6d464ba572552ea99e795
+guid: 5908bc4d6494b6743807a7284d97f464
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BedroomLevelPalette_0
-    21300002: BedroomLevelPalette_1
-    21300004: BedroomLevelPalette_2
-    21300006: BedroomLevelPalette_3
-    21300008: BedroomLevelPalette_4
-    21300010: BedroomLevelPalette_5
-    21300012: BedroomLevelPalette_6
-    21300014: BedroomLevelPalette_7
-    21300016: BedroomLevelPalette_8
-    21300018: BedroomLevelPalette_9
+    21300000: tileset (1)_0
+    21300002: tileset (1)_1
+    21300004: tileset (1)_2
+    21300006: tileset (1)_3
+    21300008: tileset (1)_4
+    21300010: tileset (1)_5
+    21300012: tileset (1)_6
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -39,7 +36,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -92,67 +89,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BedroomLevelPalette_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7da6a1bcb1a9dd5488b3bb2c4612ea87
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BedroomLevelPalette_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70f6616085e01c64d951945142e44d43
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BedroomLevelPalette_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9949576e362c0ea4198cfc5185ccf474
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BedroomLevelPalette_3
+      name: tileset (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -166,13 +103,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d0be764284fa1745bd0c8d99ec7fb2c
+      spriteID: 6a1887b99843b5b4ea5d4ea40b1fd7af
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedroomLevelPalette_4
+      name: tileset (1)_1
       rect:
         serializedVersion: 2
         x: 32
@@ -186,13 +123,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa865ec785096844ba09e0e120a6594b
+      spriteID: f0caaebdfe5cc934dace4e1e5276b890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedroomLevelPalette_5
+      name: tileset (1)_2
       rect:
         serializedVersion: 2
         x: 64
@@ -206,13 +143,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2137cbf015499f4d95540ae3c1e20ce
+      spriteID: 4cc846f66c2acf74ca24cf297c29df3f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedroomLevelPalette_6
+      name: tileset (1)_3
       rect:
         serializedVersion: 2
         x: 0
@@ -226,13 +163,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e236d2ada3b9dd945bba0c4e0335f6a5
+      spriteID: ee557700265b9914bbce97c8c826377e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedroomLevelPalette_7
+      name: tileset (1)_4
       rect:
         serializedVersion: 2
         x: 32
@@ -246,13 +183,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4658c48828f67744d9096036b35f3232
+      spriteID: b517763f32a0222498c7e3fbfe505792
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedroomLevelPalette_8
+      name: tileset (1)_5
       rect:
         serializedVersion: 2
         x: 64
@@ -266,13 +203,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e40706071f3f1ff4ab58b2ab4e94c765
+      spriteID: 8457819de1f892447b12521a9e14742a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedroomLevelPalette_9
+      name: tileset (1)_6
       rect:
         serializedVersion: 2
         x: 0
@@ -286,7 +223,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ca5f4e17bf23b94c96872d5b2f645d0
+      spriteID: cf2005ce0e81a9f4ea09ed7cc0dd1e82
       vertices: []
       indices: 
       edges: []
@@ -294,7 +231,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e4f24571918dde94db501b3a718bcd09
+    spriteID: e9190a4e044c26e478db81fe79baa1ab
     vertices: []
     indices: 
     edges: []
