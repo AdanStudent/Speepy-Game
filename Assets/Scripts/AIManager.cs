@@ -14,7 +14,9 @@ public class AIManager : MonoBehaviour {
         //create ghosts needed in the scence
         for (int i = 0; i < ghostCount; i++)
         {
-            ghosts.Add(Instantiate(prefab, this.transform));
+            ghosts.Add(Instantiate(prefab,
+                new Vector3(UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f), 0), 
+                Quaternion.identity, this.transform));
         }
     }
 	
