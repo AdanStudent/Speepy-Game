@@ -15,6 +15,12 @@ public class PlayerHealth : MonoBehaviour {
     //healthbar animation
     Animator healthAni;
 
+    //keyUI object
+    public GameObject keyUI;
+
+    //KeyUI animation
+    Animator keyAni;
+
     //Hit cool down
     [SerializeField]
     float coolDown=10;
@@ -34,13 +40,15 @@ public class PlayerHealth : MonoBehaviour {
         //get animation component
         healthAni = healthBar.GetComponent<Animator>();
 
+        //get animation component
+        keyAni = keyUI.GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
         healthAni.SetInteger("Health", StatManager.health);
-
+        keyAni.SetBool("HasKey", StatManager.hasKey);
     }
 
     //decrease health if player is hit by enemy
@@ -68,6 +76,14 @@ public class PlayerHealth : MonoBehaviour {
         }
         //go to next level if player has key
         else if (collision.gameObject.tag == "stair")
+        {
+            if (StatManager.hasKey)
+            {
+                SceneManagement.LevelChange();
+                StatManager.hasKey = false;
+            }
+        }
+        else if (collision.gameObject.tag == "Exit")
         {
             if (StatManager.hasKey)
                 SceneManagement.LevelChange();

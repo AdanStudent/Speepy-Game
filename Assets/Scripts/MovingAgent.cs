@@ -114,7 +114,7 @@ class MovingAgent
             return Seek(evader.transform.position);
         }
 
-        float LookAheadTime = ToEvader.magnitude / (this._unityGhost.MaxSpeed + _playerMovement.Speed());
+        float LookAheadTime = (ToEvader.magnitude / (this._unityGhost.MaxSpeed + _playerMovement.Speed()));
         return Seek(evader.transform.position + (Vector3)(_playerRB2D.velocity * LookAheadTime));
     }
 
@@ -158,6 +158,7 @@ class MovingAgent
             this._unityGhost.Direction += this._acceleration * (time);
 
             this.Truncate(ref this._unityGhost.Direction, this._unityGhost.MaxSpeed);
+            Vector3.ClampMagnitude(this._unityGhost.Direction, Random.Range(3, 15));
             this._unityGhost.Location += this._unityGhost.Direction * (time);
 
             if (this._unityGhost.Direction.SqrMagnitude() > 0.0001)

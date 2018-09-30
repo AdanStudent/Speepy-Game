@@ -63,6 +63,21 @@ public class UnityGhost : MonoBehaviour {
     //used to update Ghost's behavior based on it's state
     private void UpdateGhostState()
     {
+
+        //If player is in "view" start chasing
+        if (Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) > 5)
+        {
+            UpdateAIBehavior(SteeringBehaviors.Pursuit);
+            this.MaxSpeed *= 2;
+        }
+
+        //If wanders too far off screen go back home
+        if (Vector3.Distance(this.transform.position, this._homeLocation) > 20)
+        {
+            UpdateAIBehavior(SteeringBehaviors.Seek);
+            this.MaxSpeed *= 2;
+        }
+
         //If stunned countdownTimer until back to Wander State
         if (isStunned)
         {
@@ -71,24 +86,12 @@ public class UnityGhost : MonoBehaviour {
             if (_stunnedTimer < 0)
             {
                 isStunned = false;
+                this.transform.position = new Vector3(0, 0, 0);
             }
         }
         else if(!isStunned && this._behaviors != SteeringBehaviors.Pursuit)
         {
             UpdateAIBehavior(SteeringBehaviors.Wander);
-        }
-
-        //If player is in "view" start chasing
-        if (Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) > 5)
-        {
-            UpdateAIBehavior(SteeringBehaviors.Pursuit);
-        }
-
-        //If wanders too far off screen go back home
-        if (Vector3.Distance(this.transform.position, this._homeLocation) > 20)
-        {
-            UpdateAIBehavior(SteeringBehaviors.Seek);
-            this.MaxSpeed *= 2;
         }
     }
 

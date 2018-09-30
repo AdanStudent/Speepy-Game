@@ -9,6 +9,7 @@ TagManager:
   - Safe
   - stair
   - key
+  - Exit
   layers:
   - Default
   - TransparentFX
