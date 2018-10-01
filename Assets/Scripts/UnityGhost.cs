@@ -26,7 +26,7 @@ public class UnityGhost : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        _homeLocation = Random.insideUnitCircle * 3;
+        _homeLocation = (Random.insideUnitCircle * 3)-new Vector2(1,2);
         _agent = new MovingAgent(this, _behaviors, _homeLocation);
         this.Location = this.transform.position;
         

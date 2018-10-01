@@ -3568,11 +3568,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4822856592369758, guid: 3e161ff34dd26af4e8f9f34bc669ba55, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.0477815
+      value: 9.32
       objectReference: {fileID: 0}
     - target: {fileID: 4822856592369758, guid: 3e161ff34dd26af4e8f9f34bc669ba55, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.3051646
+      value: -11.18
       objectReference: {fileID: 0}
     - target: {fileID: 4822856592369758, guid: 3e161ff34dd26af4e8f9f34bc669ba55, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3652,12 +3652,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 5db63e4a8efd62643a3198e12edc4492, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96a63a0e3275d9d4d8128d0b0f28b76b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
