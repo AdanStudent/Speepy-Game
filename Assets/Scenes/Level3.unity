@@ -603,7 +603,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 81d16d667b0e5844db66d2a71a57b5b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87bfff9eb0c6fd14586e95bbe6073bca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -717,7 +717,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 81d16d667b0e5844db66d2a71a57b5b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87bfff9eb0c6fd14586e95bbe6073bca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -751,7 +751,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 775597243}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5771055, y: -8.484532, z: 0.390625}
+  m_LocalPosition: {x: -3.72, y: -11.89, z: 0.390625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 164988744}
@@ -831,7 +831,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 81d16d667b0e5844db66d2a71a57b5b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87bfff9eb0c6fd14586e95bbe6073bca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3435,7 +3435,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 81d16d667b0e5844db66d2a71a57b5b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87bfff9eb0c6fd14586e95bbe6073bca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3549,7 +3549,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 81d16d667b0e5844db66d2a71a57b5b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87bfff9eb0c6fd14586e95bbe6073bca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3660,7 +3660,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &951872893
 Transform:
