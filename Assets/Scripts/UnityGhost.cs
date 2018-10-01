@@ -21,12 +21,13 @@ public class UnityGhost : MonoBehaviour {
     public Vector2 Location;
     public Vector2 Heading;
 
-    public Vector2 _homeLocation = Vector2.left;
+    public Vector2 _homeLocation;
 
 
     // Use this for initialization
     void Start () {
-        _agent = new MovingAgent(this, _behaviors, Vector2.down);
+        _homeLocation = (Random.insideUnitCircle * 3)-new Vector2(1,2);
+        _agent = new MovingAgent(this, _behaviors, _homeLocation);
         this.Location = this.transform.position;
         
         //Setting the AI to start in Wander when loaded

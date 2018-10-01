@@ -19,6 +19,8 @@ public class SceneManagement : MonoBehaviour {
     void Start () {
         //dont destroy this game object
         DontDestroyOnLoad(this);
+        //set default resolution
+        Screen.SetResolution(1280, 1024, true);
         //create code for buttons, buttons only work if there is an object attached to it
         if (StartButton1 != null)
         {

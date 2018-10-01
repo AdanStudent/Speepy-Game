@@ -42,6 +42,8 @@ public class PlayerHealth : MonoBehaviour {
 
         //get animation component
         keyAni = keyUI.GetComponent<Animator>();
+
+        healthAni.SetInteger("Health", StatManager.health);
     }
 	
 	// Update is called once per frame

@@ -91,7 +91,7 @@ class MovingAgent
 
     private Vector2 Separation()
     {
-        float desiredSeparation = .5f * 2; // how much the agents will be separated by
+        float desiredSeparation = .75f * 2; // how much the agents will be separated by
         Vector2 sum = new Vector2(); //a place holder for the sum of the other agents
         int count = 0; //keeps track of how many for some math later
 
