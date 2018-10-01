@@ -21,11 +21,12 @@ public class UnityGhost : MonoBehaviour {
     public Vector2 Location;
     public Vector2 Heading;
 
-    public Vector2 _homeLocation = Random.insideUnitCircle * 3;
+    public Vector2 _homeLocation;
 
 
     // Use this for initialization
     void Start () {
+        _homeLocation = Random.insideUnitCircle * 3;
         _agent = new MovingAgent(this, _behaviors, _homeLocation);
         this.Location = this.transform.position;
         
