@@ -8,6 +8,7 @@ public class AIManager : MonoBehaviour {
     public int ghostCount;
     public GameObject prefab;
     public List<GameObject> ghosts;
+    public List<UnityGhost> ghostsAI;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +18,9 @@ public class AIManager : MonoBehaviour {
             ghosts.Add(Instantiate(prefab,
                 new Vector3(UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f), 0), 
                 Quaternion.identity, this.transform));
+            ghostsAI.Add(ghosts[i].GetComponent<UnityGhost>());
         }
+
     }
 	
 	// Update is called once per frame
@@ -25,6 +28,12 @@ public class AIManager : MonoBehaviour {
         if (PlayerHealth.safe)
         {
             RunAway();
+        }
+
+        //check each ghost
+        foreach (var g in ghostsAI)
+        {
+            g.UnityGhostSeparation(ghostsAI);
         }
 	}
 

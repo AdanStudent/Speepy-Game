@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 
@@ -52,6 +53,13 @@ public class UnityGhost : MonoBehaviour {
         //During gameplay will update as player comes into view vs just wandering
         UpdateGhostState();
 	}
+    //to be called by the manager passing in a list of other ghosts
+    public void UnityGhostSeparation(List<UnityGhost> ghosts)
+    {
+        //this will pass the list to the MovingAgent where the actual calculations will be done
+        _agent.AddGhostsReference(ghosts);
+
+    }
 
     private void OnDrawGizmos()
     {

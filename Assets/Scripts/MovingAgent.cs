@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+//based on the code from this project
+//https://github.com/shiffman/The-Nature-of-Code-Examples-p5.js/tree/master/chp06_agents
+
 
 //used for the differents types of behaviors the Moving Agent will enact
 public enum SteeringBehaviors { None, Seek, Arrive, Pursuit, Wander}
@@ -26,6 +32,7 @@ class MovingAgent
     private Rigidbody2D _playerRB2D;
     private PlayerMovement _playerMovement;
 
+    private List<UnityGhost> otherGhosts;
 
     private Vector2 _steeringForce;
     private Vector2 _acceleration;
@@ -40,6 +47,11 @@ class MovingAgent
         this._unityGhost.Direction = new Vector2(0, 0);
         this._homeLoc = HomeLocation;
 
+    }
+
+    public void AddGhostsReference(List<UnityGhost> ghosts)
+    {
+        otherGhosts = ghosts;
     }
 
     #region SteeringBehaviors
@@ -61,11 +73,13 @@ class MovingAgent
 
             case SteeringBehaviors.Pursuit:
                 if (this._player != null)
-                    _steeringForce = Pursuit(this._player);
+                {
+                    _steeringForce = Separation() + Pursuit(this._player);
+                }   
                 break;
 
             case SteeringBehaviors.Wander:
-                _steeringForce = Wander();
+                _steeringForce = Separation() + Wander();
                 break;
 
             default:
@@ -73,6 +87,42 @@ class MovingAgent
         }
 
         return this._steeringForce;
+    }
+
+    private Vector2 Separation()
+    {
+        float desiredSeparation = .5f * 2; // how much the agents will be separated by
+        Vector2 sum = new Vector2(); //a place holder for the sum of the other agents
+        int count = 0; //keeps track of how many for some math later
+
+        //check each agent
+        foreach (var g in otherGhosts)
+        {
+            //checks their distance from this to other
+            float dist = Vector2.Distance(this._unityGhost.Location, g.Location);
+
+            //Checks that the distance is greater than 0 to avoid self
+            //and if its closer to agent their wanted
+            if ((dist > 0) && (dist < desiredSeparation))
+            {
+                var difference = this._unityGhost.Location - g.Location; //subtract their locations
+                difference = difference.normalized; //normalize the calculation from above
+                difference /= dist; // divide by distance 
+                sum += difference; // add that to sum
+                count++; //update counter
+            }
+        }
+
+        Vector2 force = new Vector2();
+        if (count > 0)
+        {
+            sum /= count;
+            sum = sum.normalized;
+            sum *= this._unityGhost.MaxSpeed;
+            force = sum - this._unityGhost.Direction;
+        }
+
+        return force;
     }
 
     private Vector2 Seek(Vector2 targetPosition)
@@ -158,7 +208,7 @@ class MovingAgent
             this._unityGhost.Direction += this._acceleration * (time);
 
             this.Truncate(ref this._unityGhost.Direction, this._unityGhost.MaxSpeed);
-            Vector3.ClampMagnitude(this._unityGhost.Direction, Random.Range(3, 15));
+            Vector3.ClampMagnitude(this._unityGhost.Direction, UnityEngine.Random.Range(3, 15));
             this._unityGhost.Location += this._unityGhost.Direction * (time);
 
             if (this._unityGhost.Direction.SqrMagnitude() > 0.0001)
