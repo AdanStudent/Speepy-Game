@@ -99,9 +99,13 @@ public class PlayerHealth : MonoBehaviour {
         }
         else if (collision.gameObject.tag == "Exit")
         {
-            source.PlayOneShot(clip2, 0.8f);
             if (StatManager.hasKey)
+            {
+                source.PlayOneShot(clip2, 0.8f);
                 SceneManagement.LevelChange();
+                StatManager.hasKey = false;
+                StatManager.health = playerHealth;
+            }
         }
     }
 
