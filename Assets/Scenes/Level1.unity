@@ -8840,6 +8840,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114349207597835026, guid: f02cf6f249dfd1946b7f1df67f2f1a26,
+        type: 2}
+      propertyPath: flashLight
+      value: 
+      objectReference: {fileID: 1571660555}
     - target: {fileID: 114884665281231054, guid: f02cf6f249dfd1946b7f1df67f2f1a26,
         type: 2}
       propertyPath: healthBar
@@ -8850,11 +8855,6 @@ Prefab:
       propertyPath: keyUI
       value: 
       objectReference: {fileID: 376604332}
-    - target: {fileID: 114349207597835026, guid: f02cf6f249dfd1946b7f1df67f2f1a26,
-        type: 2}
-      propertyPath: flashLight
-      value: 
-      objectReference: {fileID: 1571660555}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f02cf6f249dfd1946b7f1df67f2f1a26, type: 2}
   m_IsPrefabParent: 0
