@@ -23,13 +23,16 @@ public class PlayerHealth : MonoBehaviour {
 
     //Hit cool down
     [SerializeField]
-    float coolDown=10;
+    float coolDown = 5;
 
     //bool for making the character invincible
     bool isInvincible;
 
     //Bool for safe room
     public static bool safe;
+
+    public AudioClip clip;
+    private AudioSource source;
 
     // Use this for initialization
     void Start () {
@@ -44,10 +47,13 @@ public class PlayerHealth : MonoBehaviour {
         keyAni = keyUI.GetComponent<Animator>();
 
         healthAni.SetInteger("Health", StatManager.health);
+
+        source = gameObject.AddComponent<AudioSource>();
+
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
         healthAni.SetInteger("Health", StatManager.health);
         keyAni.SetBool("HasKey", StatManager.hasKey);
@@ -61,10 +67,10 @@ public class PlayerHealth : MonoBehaviour {
         {
             if(isInvincible==false)
             {
+                source.PlayOneShot(clip, 0.8f);
                 StatManager.health -= 1;
                 StartCoroutine(Invincible());
             }
-            Debug.Log(StatManager.health);
             if (StatManager.health <= 0)
             {
                 SceneManagement.GameOver();
@@ -113,9 +119,7 @@ public class PlayerHealth : MonoBehaviour {
     {
 
         isInvincible = true;
-        Debug.Log("True");
         yield return new WaitForSeconds(coolDown);
-        Debug.Log("false");
         isInvincible = false;
     }
 

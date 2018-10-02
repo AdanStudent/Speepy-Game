@@ -2,7 +2,6 @@
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-
 public class UnityGhost : MonoBehaviour {
 
     //Reference of Ghost State
@@ -21,12 +20,15 @@ public class UnityGhost : MonoBehaviour {
     public Vector2 Location;
     public Vector2 Heading;
 
-    public Vector2 _homeLocation;
+    private Vector2 _homeLocation;
 
+    GameObject player;
+    public AudioClip clip;
+    private AudioSource source;
 
     // Use this for initialization
     void Start () {
-        _homeLocation = (Random.insideUnitCircle * 3)-new Vector2(1,2);
+        _homeLocation = (Random.insideUnitCircle * 3) - new Vector2(1, 2);
         _agent = new MovingAgent(this, _behaviors, _homeLocation);
         this.Location = this.transform.position;
         
@@ -36,12 +38,13 @@ public class UnityGhost : MonoBehaviour {
         //Gets components for the AI
         this._agent.RunOnStart();
 
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        player = GameObject.FindGameObjectWithTag("Player");
+        source = gameObject.AddComponent<AudioSource>();
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
-        
         //Updates AI's calculations
         _agent.UpdateForces();
         this.MaxSpeed = 2;
@@ -74,16 +77,15 @@ public class UnityGhost : MonoBehaviour {
     {
 
         //If player is in "view" start chasing
-        if (Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) > 5)
+        if (Vector3.Distance(this.transform.position, player.transform.position) > 7)
         {
             UpdateAIBehavior(SteeringBehaviors.Pursuit);
             this.MaxSpeed *= 2;
         }
-
+        else if(Vector3.Distance(this.transform.position, this._homeLocation) > 15)
         //If wanders too far off screen go back home
-        if (Vector3.Distance(this.transform.position, this._homeLocation) > 20)
         {
-            UpdateAIBehavior(SteeringBehaviors.Seek);
+            UpdateAIBehavior(SteeringBehaviors.Arrive);
             this.MaxSpeed *= 2;
         }
 
@@ -91,7 +93,6 @@ public class UnityGhost : MonoBehaviour {
         if (isStunned)
         {
             _stunnedTimer -= Time.deltaTime;
-
             if (_stunnedTimer < 0)
             {
                 isStunned = false;
@@ -102,22 +103,21 @@ public class UnityGhost : MonoBehaviour {
         {
             UpdateAIBehavior(SteeringBehaviors.Wander);
         }
+
     }
 
     float _stunnedTimer;
     bool isStunned;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
-
         if (collision.gameObject.tag == "Light")
         {
-            Debug.Log("light");
             UpdateAIBehavior(SteeringBehaviors.None);
 
             //Start countdown timer
             _stunnedTimer = 5f;
             isStunned = true;
+            source.PlayOneShot(clip, 0.4f);
         }
         else if(collision.gameObject.tag == "Player")
         {
