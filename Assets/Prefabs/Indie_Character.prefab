@@ -138,6 +138,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   keyUI: {fileID: 0}
   coolDown: 10
+  clip: {fileID: 0}
 --- !u!212 &212903874304096790
 SpriteRenderer:
   m_ObjectHideFlags: 1
