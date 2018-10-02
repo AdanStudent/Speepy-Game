@@ -31,7 +31,11 @@ public class PlayerHealth : MonoBehaviour {
     //Bool for safe room
     public static bool safe;
 
-    public AudioClip clip;
+    [SerializeField]
+    AudioClip clip;
+
+    [SerializeField]
+    AudioClip clip2;
     private AudioSource source;
 
     // Use this for initialization
@@ -79,6 +83,7 @@ public class PlayerHealth : MonoBehaviour {
         //pickup key object
         else if (collision.gameObject.tag == "key")
         {
+            source.PlayOneShot(clip2, 0.8f);
             StatManager.hasKey = true;
             Destroy(collision.gameObject); 
         }
@@ -87,12 +92,14 @@ public class PlayerHealth : MonoBehaviour {
         {
             if (StatManager.hasKey)
             {
+                source.PlayOneShot(clip2, 0.8f);
                 SceneManagement.LevelChange();
                 StatManager.hasKey = false;
             }
         }
         else if (collision.gameObject.tag == "Exit")
         {
+            source.PlayOneShot(clip2, 0.8f);
             if (StatManager.hasKey)
                 SceneManagement.LevelChange();
         }
