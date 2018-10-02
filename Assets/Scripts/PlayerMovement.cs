@@ -39,6 +39,9 @@ public class PlayerMovement : MonoBehaviour {
 
     public enum DIRECTIONS { Up, Right, Down, Left };
 
+    //the player's current position coordinates
+    Vector2 lastPos;
+
     //Use this for intialization 
     void Start()
     {
@@ -50,6 +53,8 @@ public class PlayerMovement : MonoBehaviour {
 
         //starting direction
         CurrentDirection = DIRECTIONS.Down;
+
+        lastPos = transform.position;
     }
 
     // Update is called once per frame
@@ -65,7 +70,10 @@ public class PlayerMovement : MonoBehaviour {
         //set new position
         GetComponent<Rigidbody2D>().velocity = new Vector2(translationX * (speed * Time.deltaTime), translationY * (speed * Time.deltaTime));
         GetComponent<Rigidbody2D>().AddForce(new Vector2(translationX*speed,translationY*speed));
+        //Freeze rotation so that the player object doesn't spin after hitting another collider
         GetComponent<Rigidbody2D>().freezeRotation=true;
+
+     
 
         //get the mouse postion on the screen
         mousePos = Input.mousePosition;
@@ -103,10 +111,29 @@ public class PlayerMovement : MonoBehaviour {
             CurrentDirection = DIRECTIONS.Up;
             flip.flipX = false;
         }
-   
+
+        //check to see if player is currently moving
+        CheckIsMoving();
+        //set direction
         animator.SetInteger("direction", (int)CurrentDirection);
 
       
+    }
+
+    //checks to see if the player is moving
+    private void CheckIsMoving()
+    {
+        Vector2 currentPos = transform.position;
+        //check to see if currently moving
+        if (lastPos.Equals(currentPos))
+        {
+            animator.SetBool("isMoving", false);
+        }
+        else
+        {
+            animator.SetBool("isMoving", true);
+        }
+        lastPos = currentPos;
     }
 
     //change the flashlight restrictions to always be in front of player no matter what direction
