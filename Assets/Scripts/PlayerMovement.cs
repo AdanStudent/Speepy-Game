@@ -24,9 +24,6 @@ public class PlayerMovement : MonoBehaviour {
     //flashlight object
     public GameObject flashLight;
 
-    //the position of the mouse cursor on the screen
-    private Vector3 mousePos;
-
     //Animator object
     Animator animator;
 
@@ -73,17 +70,11 @@ public class PlayerMovement : MonoBehaviour {
         //Freeze rotation so that the player object doesn't spin after hitting another collider
         GetComponent<Rigidbody2D>().freezeRotation=true;
 
-     
-
-        //get the mouse postion on the screen
-        mousePos = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
         //restrict flashlight movement to front of player
         SetFlashlightDirection();
 
         //move flashlight position
-        flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, mousePos, speed);
+        //flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, transform.position, speed);
        
     }
 
@@ -143,36 +134,34 @@ public class PlayerMovement : MonoBehaviour {
         {
             //flip the flashlight to face down
             flashLight.transform.localRotation = Quaternion.Euler(0, -180, 0);
-            //restrict flashlight movement to front of player
-            mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightXConstraint, transform.position.x + flashlightXConstraint);
-            mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightYConstraint, transform.position.y - flashlightYConstraint);
-           
+            //move flashlight position
+            flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, new Vector2(transform.position.x, transform.position.y - flashlightYConstraint), speed);
         }
         else if (CurrentDirection.CompareTo(DIRECTIONS.Up) == 0)
         {
             
             //flip the flashlight to face up
             flashLight.transform.localRotation=Quaternion.Euler(180, 0, 0);
-            //restrict flashlight movement to front of player
-            mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightXConstraint, transform.position.x + flashlightXConstraint);
-            mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y + flashlightYConstraint, transform.position.y + flashlightYConstraint);
+            //move flashlight position
+            flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, new Vector2(transform.position.x, transform.position.y+flashlightYConstraint), speed);
         }
         else if (CurrentDirection.CompareTo(DIRECTIONS.Right) == 0)
         {
             //flip the flashlight to face right
             flashLight.transform.localRotation = Quaternion.Euler(0, 0,90);
             //restrict flashlight movement to front of player
-            mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x + flashlightYConstraint, transform.position.x + flashlightYConstraint);
-            mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightXConstraint, transform.position.y + flashlightXConstraint);
-           
+            //move flashlight position
+            flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, new Vector2(transform.position.x + flashlightXConstraint, transform.position.y), speed);
+
         }
         else if (CurrentDirection.CompareTo(DIRECTIONS.Left) == 0)
         {
             //flip the flashlight to face left
             flashLight.transform.localRotation = Quaternion.Euler(0, 0, -90);
             //restrict flashlight movement to front of player
-            mousePos.x = Mathf.Clamp(mousePos.x, transform.position.x - flashlightYConstraint, transform.position.x - flashlightYConstraint);
-            mousePos.y = Mathf.Clamp(mousePos.y, transform.position.y - flashlightXConstraint, transform.position.y + flashlightXConstraint);
+
+            //move flashlight position
+            flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, new Vector2(transform.position.x-flashlightXConstraint, transform.position.y), speed);
         }
     }
 

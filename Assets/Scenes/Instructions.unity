@@ -1622,7 +1622,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Use the flashlight to look around your surrondings and to temporatily stun
+  m_Text: Use the flashlight to look around your surroundings and to temporarily stun
     the ghosts
 --- !u!222 &2006822972
 CanvasRenderer:
