@@ -67,7 +67,8 @@ public class PlayerHealth : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //decrease health
-        if (collision.gameObject.tag == "Ghost")
+        if (collision.gameObject.tag == "Ghost") //if its a ghost
+            //&& collision.gameObject.GetComponent<UnityGhost>()._behaviors != SteeringBehaviors.Seek) //and if its not going to its home location
         {
             if(isInvincible==false)
             {

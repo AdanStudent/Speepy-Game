@@ -58,12 +58,16 @@ class MovingAgent
 
     private Vector2 BehaviorSwitch()
     {
+        this._unityGhost.gameObject.tag = "Ghost";
+
         switch (this._unityGhost._behaviors)
         {
             case SteeringBehaviors.None:
                 break;
 
             case SteeringBehaviors.Seek:
+                this._unityGhost.gameObject.tag = "Untagged";
+                this._homeLoc = this._player.transform.position * -1;
                 _steeringForce = Seek(_homeLoc);
                 break;
 
