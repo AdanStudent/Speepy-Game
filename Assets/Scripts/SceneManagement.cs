@@ -62,7 +62,7 @@ public class SceneManagement : MonoBehaviour {
     //loads instructions
     void TaskOnClick()
     {
-        SceneManager.LoadScene("Instructions");
+        SceneManager.LoadScene("Tutorial");
     }
 
     //exits game
@@ -91,7 +91,7 @@ public class SceneManagement : MonoBehaviour {
     }
 
     //loads game
-    void TaskOnClick5()
+    public static void TaskOnClick5()
     {
         SceneManager.LoadScene("Level1");
         StatManager.level = 1;
