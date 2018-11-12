@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114812586246155418}
   - component: {fileID: 95590696928676764}
   - component: {fileID: 82400582937491972}
-  - component: {fileID: 70683712739007458}
+  - component: {fileID: 70373337447841288}
   m_Layer: 0
   m_Name: Indie_Character 1
   m_TagString: Player
@@ -97,7 +97,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &70683712739007458
+--- !u!70 &70373337447841288
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
