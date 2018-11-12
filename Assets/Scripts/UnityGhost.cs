@@ -102,6 +102,7 @@ public class UnityGhost : MonoBehaviour {
         else if(!isStunned && this._behaviors != SteeringBehaviors.Pursuit)
         {
             UpdateAIBehavior(SteeringBehaviors.Wander);
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
 
     }
@@ -115,7 +116,9 @@ public class UnityGhost : MonoBehaviour {
             UpdateAIBehavior(SteeringBehaviors.None);
 
             //Start countdown timer
-            _stunnedTimer = 5f;
+            _stunnedTimer = 8f;
+            GetComponent<SpriteRenderer>().color = Color.red;
+
             isStunned = true;
             source.PlayOneShot(clip, 0.4f);
         }

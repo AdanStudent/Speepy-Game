@@ -111,18 +111,21 @@ public class PlayerMovement : MonoBehaviour {
       
     }
 
+    public bool isMoving = false;
     //checks to see if the player is moving
-    private void CheckIsMoving()
+    public void CheckIsMoving()
     {
         Vector2 currentPos = transform.position;
         //check to see if currently moving
         if (lastPos.Equals(currentPos))
         {
             animator.SetBool("isMoving", false);
+            isMoving = false;
         }
         else
         {
             animator.SetBool("isMoving", true);
+            isMoving = true;
         }
         lastPos = currentPos;
     }
