@@ -102,6 +102,10 @@ public class UnityGhost : MonoBehaviour {
         else if(!isStunned && this._behaviors != SteeringBehaviors.Pursuit)
         {
             UpdateAIBehavior(SteeringBehaviors.Wander);
+           
+        }
+        if(!isStunned)
+        {
             GetComponent<SpriteRenderer>().color = Color.white;
         }
 
