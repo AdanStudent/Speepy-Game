@@ -10,6 +10,7 @@ TagManager:
   - stair
   - key
   - Exit
+  - GameSound
   layers:
   - Default
   - TransparentFX

@@ -14,11 +14,15 @@ public class SceneManagement : MonoBehaviour {
     public Button CreditsButton;
     public Button RestartButton;
 
+    public AudioClip click;
+    public AudioSource source;
+
 
     // Use this for initialization
     void Start () {
         //dont destroy this game object
         DontDestroyOnLoad(this);
+
         //set default resolution
         Screen.SetResolution(1280, 1024, true);
         //create code for buttons, buttons only work if there is an object attached to it
@@ -62,30 +66,35 @@ public class SceneManagement : MonoBehaviour {
     //loads instructions
     void TaskOnClick()
     {
+        source.PlayOneShot(click, .5f);
         SceneManager.LoadScene("Tutorial");
     }
 
     //exits game
     void TaskOnClick1()
     {
+        source.PlayOneShot(click, .5f);
         Application.Quit();
     }
 
     //returns to start menu
     void TaskOnClick2()
     {
+        source.PlayOneShot(click, .5f);
         SceneManager.LoadScene("StartMenu");
     }
 
     //loads credits
     void TaskOnClick3()
     {
+        source.PlayOneShot(click, .5f);
         SceneManager.LoadScene("Credits");
     }
 
     //loads checkpoint
     void TaskOnClick4()
     {
+        source.PlayOneShot(click, .5f);
         SceneManager.LoadScene("Level"+StatManager.level);
         StatManager.hasKey = false;
     }

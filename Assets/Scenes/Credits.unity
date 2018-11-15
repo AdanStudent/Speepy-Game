@@ -113,6 +113,48 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &38056711
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4217583259762822, guid: 6763e7913a30fc84099de606f6336d4a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217583259762822, guid: 6763e7913a30fc84099de606f6336d4a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217583259762822, guid: 6763e7913a30fc84099de606f6336d4a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217583259762822, guid: 6763e7913a30fc84099de606f6336d4a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217583259762822, guid: 6763e7913a30fc84099de606f6336d4a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217583259762822, guid: 6763e7913a30fc84099de606f6336d4a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217583259762822, guid: 6763e7913a30fc84099de606f6336d4a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217583259762822, guid: 6763e7913a30fc84099de606f6336d4a, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6763e7913a30fc84099de606f6336d4a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &208428728
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +507,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Designer\nKenneth Khau\n\nArtists\nMatthew Herrick\nJohn Belluomini\r\n\nProgrammers\nAdan
-    Benitez\nTess Olson\n\nSound\nRichard Dorta"
+    Benitez\nTess Olson\n\nSound\nRichard Dorta\nBrianne Mahoney"
 --- !u!222 &1042154304
 CanvasRenderer:
   m_ObjectHideFlags: 0
