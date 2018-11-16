@@ -23,18 +23,9 @@ public class Tutorial : MonoBehaviour {
     {
         if(collision.gameObject.tag=="Safe")
         {
-            if (!GetComponent<PlayerMovement>().isMoving&&!HasMoved)
-            {
                 tutText.text = "This is the safe room.\n" +
-                    "It will keep you from getting hit by \nthe ghosts that are trying to kill you." +
+                    "It is denoted by the white and black checkered pattern.\n" +
                     "\n Use w,s,a,d to move.";
-            }
-            else
-            {
-                HasMoved = true;
-                tutText.text = "It is denoted by the white \nand black checkered pattern.\n" +
-                    "Leave this area to find the key \nand escape, but risk death.";
-            }
         }
     }
 
