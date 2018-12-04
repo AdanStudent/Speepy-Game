@@ -121,7 +121,7 @@ public class UnityGhost : MonoBehaviour {
 
             //Start countdown timer
             _stunnedTimer = 8f;
-            GetComponent<SpriteRenderer>().color = Color.red;
+            GetComponent<SpriteRenderer>().color = Color.blue;
 
             isStunned = true;
             source.PlayOneShot(clip, 0.4f);

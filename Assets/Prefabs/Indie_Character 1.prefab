@@ -251,6 +251,7 @@ MonoBehaviour:
   flashlightXConstraint: 1.2
   flashlightYConstraint: 1.4
   flashLight: {fileID: 0}
+  isMoving: 0
 --- !u!114 &114812586246155418
 MonoBehaviour:
   m_ObjectHideFlags: 1

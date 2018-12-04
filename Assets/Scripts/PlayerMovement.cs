@@ -136,7 +136,8 @@ public class PlayerMovement : MonoBehaviour {
         if(CurrentDirection.CompareTo(DIRECTIONS.Down)==0)
         {
             //flip the flashlight to face down
-            flashLight.transform.localRotation = Quaternion.Euler(0, -180, 0);
+            flashLight.transform.rotation = Quaternion.Lerp(flashLight.transform.rotation, Quaternion.Euler(0, -180, 0),1);
+
             //move flashlight position
             flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, new Vector2(transform.position.x, transform.position.y - flashlightYConstraint), speed);
         }
@@ -144,14 +145,16 @@ public class PlayerMovement : MonoBehaviour {
         {
             
             //flip the flashlight to face up
-            flashLight.transform.localRotation=Quaternion.Euler(180, 0, 0);
+            flashLight.transform.rotation = Quaternion.Lerp(flashLight.transform.rotation, Quaternion.Euler(180, 0, 0), 1);
+
             //move flashlight position
             flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, new Vector2(transform.position.x, transform.position.y+flashlightYConstraint), speed);
         }
         else if (CurrentDirection.CompareTo(DIRECTIONS.Right) == 0)
         {
             //flip the flashlight to face right
-            flashLight.transform.localRotation = Quaternion.Euler(0, 0,90);
+            flashLight.transform.rotation = Quaternion.Lerp(flashLight.transform.rotation, Quaternion.Euler(0, 0, 90), 1);
+
             //restrict flashlight movement to front of player
             //move flashlight position
             flashLight.transform.position = Vector2.Lerp(flashLight.transform.position, new Vector2(transform.position.x + flashlightXConstraint, transform.position.y), speed);
@@ -160,7 +163,8 @@ public class PlayerMovement : MonoBehaviour {
         else if (CurrentDirection.CompareTo(DIRECTIONS.Left) == 0)
         {
             //flip the flashlight to face left
-            flashLight.transform.localRotation = Quaternion.Euler(0, 0, -90);
+            flashLight.transform.rotation = Quaternion.Lerp(flashLight.transform.rotation, Quaternion.Euler(0, 0, -90), 1);
+
             //restrict flashlight movement to front of player
 
             //move flashlight position

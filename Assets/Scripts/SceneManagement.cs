@@ -24,7 +24,7 @@ public class SceneManagement : MonoBehaviour {
         DontDestroyOnLoad(this);
 
         //set default resolution
-        Screen.SetResolution(1280, 1024, true);
+        Camera.main.aspect = (5f / 4f);
         //create code for buttons, buttons only work if there is an object attached to it
         if (StartButton1 != null)
         {

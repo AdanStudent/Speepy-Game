@@ -74,6 +74,7 @@ public class PlayerHealth : MonoBehaviour {
             {
                 source.PlayOneShot(clip, 0.8f);
                 StatManager.health -= 1;
+                StartCoroutine(Hurt());
                 StartCoroutine(Invincible());
             }
             if (StatManager.health <= 0)
@@ -133,6 +134,14 @@ public class PlayerHealth : MonoBehaviour {
         isInvincible = true;
         yield return new WaitForSeconds(coolDown);
         isInvincible = false;
+    }
+
+    IEnumerator Hurt()
+    {
+
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.5f);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
 }
